@@ -60,70 +60,23 @@
       background-color: darken($orange, 10%);
     }
   }
-}
 
-// RWD dla ekranów poniżej 768px (np. tablety i smartfony)
-@media (max-width: 768px) {
-  .introSection {
+  @media (max-width: 768px) {
     height: auto;
     padding: 20px;
-    text-align: center;
-  }
 
-  .title {
-    font-size: 36px;
-  }
+    .title {
+      font-size: 32px;
+    }
 
-  .subtitle {
-    font-size: 18px;
-  }
+    .subtitle {
+      font-size: 18px;
+    }
 
-  .ctaButton {
-    padding: 12px 24px;
-    font-size: 18px;
-  }
-}
-
-// RWD dla ekranów poniżej 480px (np. małe smartfony)
-@media (max-width: 480px) {
-  .introSection {
-    height: auto;
-    padding: 15px;
-  }
-
-  .title {
-    font-size: 18px;
-  }
-
-  .subtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  .ctaButton {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-}
-
-// RWD dla ekranów powyżej 1200px (np. duże monitory)
-@media (min-width: 1200px) {
-  .introSection {
-    height: 100vh;
-    padding: 40px;
-  }
-
-  .title {
-    font-size: 60px;
-  }
-
-  .subtitle {
-    font-size: 26px;
-  }
-
-  .ctaButton {
-    padding: 18px 36px;
-    font-size: 24px;
+    .ctaButton {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
   }
 }
 
@@ -163,68 +116,22 @@
       transform: scale(1.1);
     }
   }
-}
 
-// RWD dla ekranów poniżej 768px (np. tablety i smartfony)
-@media (max-width: 768px) {
-  .leagueSection {
-    margin-top: 30px;
-  }
+  @media (max-width: 768px) {
+    .logosContainer {
+      gap: 10px;
+    }
 
-  .logosContainer {
-    gap: 10px; /* Zmniejszenie odstępów między logotypami */
-  }
+    .clubLogo {
+      width: 80px;
 
-  .clubLogo {
-    width: 80px;
-
-    img {
-      width: 60px;
-      height: 60px;
+      img {
+        width: 60px;
+        height: 60px;
+      }
     }
   }
 }
-
-// RWD dla ekranów poniżej 480px (np. małe smartfony)
-@media (max-width: 480px) {
-  .leagueSection {
-    margin-top: 20px;
-  }
-
-  .logosContainer {
-    gap: 8px; /* Jeszcze mniejsze odstępy na małych ekranach */
-  }
-
-  .clubLogo {
-    width: 60px;
-
-    img {
-      width: 50px;
-      height: 50px;
-    }
-  }
-}
-
-// RWD dla ekranów powyżej 1200px (np. duże monitory)
-@media (min-width: 1200px) {
-  .leagueSection {
-    margin-top: 70px;
-  }
-
-  .logosContainer {
-    gap: 20px; /* Większe odstępy dla większych ekranów */
-  }
-
-  .clubLogo {
-    width: 120px;
-
-    img {
-      width: 100px;
-      height: 100px;
-    }
-  }
-}
-
 
 // Animacje
 @keyframes fadeInUp {
@@ -375,6 +282,50 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .matchContainer {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .lastMatch, .nextMatch {
+      border: 1px solid #ffd700;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      min-height: 100px;
+
+      h3 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .teamLogo {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .countdown {
+      gap: 10px;
+      padding: 5px;
+
+      .timeBox {
+        font-size: 16px;
+        padding: 10px;
+        span {
+          font-size: 26px;
+        }
+      }
+    }
+  }
 }
 
 // Sekcja z aktualnościami
@@ -388,13 +339,15 @@
   justify-content: center;
   align-items: center;
   border: 3px solid $gold;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   .newsContent {
     max-width: 1200px;
     text-align: center;
   }
 
-  // Używamy już istniejących stylów dla tytułu i podtytułu
   .title {
     font-size: 48px;
     margin-bottom: 20px;
@@ -415,10 +368,6 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     margin-top: 20px;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
 
     .newsItem {
       border: 2px solid $gold;
@@ -441,7 +390,7 @@
       p {
         font-size: 18px;
         color: $gray;
-        margin-bottom: 30px; // Zwiększony odstęp między tekstem a przyciskiem
+        margin-bottom: 30px;
       }
 
       .ctaButton {
@@ -451,7 +400,7 @@
         color: $black;
         border: none;
         border-radius: 8px;
-        margin-top: 30px; // Zwiększony margines górny
+        margin-top: 30px;
         transition: transform 0.3s ease, background-color 0.3s ease;
 
         &:hover {
@@ -467,12 +416,71 @@
         color: $black;
         border: none;
         border-radius: 8px;
-        margin-top: 30px; // Zwiększony margines górny
+        margin-top: 30px;
         transition: transform 0.3s ease, background-color 0.3s ease;
 
         &:hover {
           transform: scale(1.1);
           background-color: darken($orange, 10%);
+        }
+      }
+    }
+  }
+
+  // Dostosowanie dla ekranów mniejszych niż 768px
+  @media (max-width: 768px) {
+    .newsContent {
+      max-width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 32px;
+      margin-bottom: 10px;
+
+      .span {
+        color: $orange;
+      }
+    }
+
+    .subtitle {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: $gray;
+    }
+
+    .newsList {
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+
+      .newsItem {
+        padding: 10px;
+        max-width: 280px;
+        margin: 0 auto;
+        border-radius: 6px;
+
+        h4 {
+          font-size: 14px;
+          margin-bottom: 5px;
+          margin-top: 0;
+        }
+
+        p {
+          font-size: 10px;
+          margin-bottom: 8px;
+        }
+
+        .ctaButton {
+          padding: 6px 10px;
+          font-size: 10px;
+        }
+
+        .fbLink {
+          padding: 6px 10px;
+          font-size: 10px;
         }
       }
     }
