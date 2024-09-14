@@ -1,0 +1,76 @@
+@import '../../styles/variables.scss';
+
+.teamsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: $gold;
+  min-height: 100vh;
+  border-bottom: 3px solid $gold;
+
+  .title {
+    font-size: 36px;
+    color: $orange;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .protonClass {
+    color: $gray;
+    font-size: 22px;
+    margin-bottom: 60px;
+  }
+
+  .teamsList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Dokładnie 3 kolumny w rzędzie */
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 60px;
+    opacity: 0; /* Ukrywanie drużyn przed animacją */
+    transform: translateY(30px); /* Początkowa pozycja */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Animacja wejścia */
+  }
+
+  .teamsList.visible {
+    opacity: 1; /* Widoczność po załadowaniu */
+    transform: translateY(0); /* Powrót do normalnej pozycji */
+  }
+
+  .teamItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid $gold;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 180px;
+    height: auto;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .teamLogo {
+      width: 100px;  /* Stała szerokość */
+      height: 100px;  /* Stała wysokość */
+      object-fit: cover;  /* Dopasowanie obrazów, przycięcie w razie potrzeby */
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .teamName {
+      font-size: 18px;
+      font-weight: bold;
+      color: $orange;
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+}

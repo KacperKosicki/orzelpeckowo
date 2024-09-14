@@ -1,0 +1,480 @@
+@import '../../styles/variables.scss';
+
+// Główny kontener
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $black, #1a1a1a);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+// Sekcja powitalna
+.introSection {
+  margin-bottom: 60px;
+  color: $gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border-bottom: 3px solid $gold;
+
+  .title, .subtitle, .ctaButton {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  .title {
+    animation-delay: 0.2s;
+    font-size: 48px;
+    margin-bottom: 20px;
+
+    .span {
+      color: $orange;
+    }
+  }
+
+  .subtitle {
+    animation-delay: 0.5s;
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+
+  .ctaButton {
+    animation-delay: 0.8s;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: $orange;
+    color: $black;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: darken($orange, 10%);
+    }
+  }
+}
+
+// RWD dla ekranów poniżej 768px (np. tablety i smartfony)
+@media (max-width: 768px) {
+  .introSection {
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .ctaButton {
+    padding: 12px 24px;
+    font-size: 18px;
+  }
+}
+
+// RWD dla ekranów poniżej 480px (np. małe smartfony)
+@media (max-width: 480px) {
+  .introSection {
+    height: auto;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .ctaButton {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+// RWD dla ekranów powyżej 1200px (np. duże monitory)
+@media (min-width: 1200px) {
+  .introSection {
+    height: 100vh;
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 60px;
+  }
+
+  .subtitle {
+    font-size: 26px;
+  }
+
+  .ctaButton {
+    padding: 18px 36px;
+    font-size: 24px;
+  }
+}
+
+// Sekcja logotypów
+.leagueSection {
+  margin-top: 50px;
+  text-align: center;
+  color: $orange;
+
+  .logosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px;
+  }
+
+  .clubLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: slideInUp 1.5s ease forwards;
+
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      transition: filter 0.3s ease, transform 0.3s ease;
+      filter: brightness(0.7);
+    }
+
+    &:hover img {
+      filter: brightness(1);
+      transform: scale(1.1);
+    }
+  }
+}
+
+// RWD dla ekranów poniżej 768px (np. tablety i smartfony)
+@media (max-width: 768px) {
+  .leagueSection {
+    margin-top: 30px;
+  }
+
+  .logosContainer {
+    gap: 10px; /* Zmniejszenie odstępów między logotypami */
+  }
+
+  .clubLogo {
+    width: 80px;
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+// RWD dla ekranów poniżej 480px (np. małe smartfony)
+@media (max-width: 480px) {
+  .leagueSection {
+    margin-top: 20px;
+  }
+
+  .logosContainer {
+    gap: 8px; /* Jeszcze mniejsze odstępy na małych ekranach */
+  }
+
+  .clubLogo {
+    width: 60px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+// RWD dla ekranów powyżej 1200px (np. duże monitory)
+@media (min-width: 1200px) {
+  .leagueSection {
+    margin-top: 70px;
+  }
+
+  .logosContainer {
+    gap: 20px; /* Większe odstępy dla większych ekranów */
+  }
+
+  .clubLogo {
+    width: 120px;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+
+// Animacje
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Sekcja z następnym i poprzednim meczem oraz licznikiem
+.countdownSection {
+  margin-bottom: 60px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+  color: #333;
+  text-align: center;
+
+  .matchContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .nextMatch, .lastMatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid $gold;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    h3 {
+      color: $orange;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .mainInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+
+    p {
+      color: $gray;
+      font-weight: bold;
+    }
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      color: $orange;
+      margin-top: 10px;
+    }
+  }
+
+  .teamLogo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .matchInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    color: #333;
+
+    .result {
+      font-size: 24px;
+      font-weight: bold;
+      color: $orange;
+      padding-top: 20px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+
+    .timeBox {
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 24px;
+      color: $orange;
+      transition: transform 0.3s ease-in-out;
+
+      span {
+        font-size: 40px;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// Sekcja z aktualnościami
+.newsSection {
+  color: $gray;
+  margin-top: 60px;
+  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid $gold;
+
+  .newsContent {
+    max-width: 1200px;
+    text-align: center;
+  }
+
+  // Używamy już istniejących stylów dla tytułu i podtytułu
+  .title {
+    font-size: 48px;
+    margin-bottom: 20px;
+
+    .span {
+      color: $orange;
+    }
+  }
+
+  .subtitle {
+    font-size: 22px;
+    margin-bottom: 60px;
+    color: $gray;
+  }
+
+  .newsList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .newsItem {
+      border: 2px solid $gold;
+      padding: 50px;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+      text-align: center;
+      position: relative;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      h4 {
+        font-size: 24px;
+        color: $orange;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 18px;
+        color: $gray;
+        margin-bottom: 30px; // Zwiększony odstęp między tekstem a przyciskiem
+      }
+
+      .ctaButton {
+        padding: 15px 30px;
+        font-size: 20px;
+        background-color: $orange;
+        color: $black;
+        border: none;
+        border-radius: 8px;
+        margin-top: 30px; // Zwiększony margines górny
+        transition: transform 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          background-color: darken($orange, 10%);
+        }
+      }
+
+      .fbLink {
+        padding: 15px 30px;
+        font-size: 20px;
+        background-color: $orange;
+        color: $black;
+        border: none;
+        border-radius: 8px;
+        margin-top: 30px; // Zwiększony margines górny
+        transition: transform 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          background-color: darken($orange, 10%);
+        }
+      }
+    }
+  }
+}

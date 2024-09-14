@@ -1,0 +1,108 @@
+@import '../../styles/variables.scss';
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: linear-gradient(135deg, $black 0%, #111111 100%);
+  border-bottom: 3px solid $gold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  
+  @media (max-width: 768px) {
+    padding: 15px 20px; /* Zmniejszony padding na mniejszych ekranach */
+  }
+}
+
+.navLogo {
+  margin-left: 30px;
+  margin-right: 50px;
+  
+  img {
+    height: 90px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+    
+    @media (max-width: 768px) {
+      height: 70px; /* Zmniejszone logo na mniejszych ekranach */
+    }
+  }
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+
+  .hamburgerBar {
+    width: 30px;
+    height: 3px;
+    background-color: $orange;
+    transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    display: flex; /* Pokazanie hamburgera na mniejszych ekranach */
+  }
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 30px;
+  
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: $black;
+    padding: 20px;
+    gap: 20px;
+    display: none; /* Domyślnie ukryte menu */
+
+    &.showMenu {
+      display: flex; /* Pokazuje menu po kliknięciu hamburgera */
+    }
+  }
+
+  .link {
+    color: $orange;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: $gold;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover {
+      color: $gold;
+      &::before {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      font-size: 18px; /* Mniejszy rozmiar czcionki na mobile */
+    }
+  }
+}

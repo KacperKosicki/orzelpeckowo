@@ -1,0 +1,161 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: $gold;
+  padding: 20px 0;
+  text-align: center;
+
+  .footerContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logoSection {
+      text-align: center;
+      flex: 1;
+      margin-bottom: 20px;
+
+      .logo {
+        width: 120px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+          transform: rotate(360deg);
+        }
+
+        @media (max-width: 768px) {
+          width: 100px;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        color: $gray;
+
+        span {
+          color: $orange;
+          font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .linksSection {
+      flex: 1;
+      h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: $orange;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 10px;
+
+          a {
+            color: $gray;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+              color: $orange;
+            }
+
+            @media (max-width: 768px) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+
+    .contactSection {
+      flex: 1;
+      h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: $orange;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: $gray;
+
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
+      }
+
+      .socialIcons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+
+        a {
+          font-size: 20px;
+          transition: color 0.3s ease-in-out;
+
+          &:hover {
+            color: $orange;
+          }
+
+          @media (max-width: 768px) {
+            font-size: 18px;
+          }
+
+          i {
+            transition: transform 0.3s ease-in-out;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footerBottom {
+    margin-top: 20px;
+    border-top: 3px solid $gold;
+    padding-top: 10px;
+
+    p {
+      font-size: 14px;
+      color: $orange;
+      font-weight: bold;
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
+    }
+  }
+}

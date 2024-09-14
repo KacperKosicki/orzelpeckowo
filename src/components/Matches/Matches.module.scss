@@ -1,0 +1,191 @@
+@import '../../styles/variables.scss';
+
+.matchesContainer {
+  border-bottom: 3px solid $gold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: $gold;
+  min-height: 100vh; /* Zajmowanie pełnej wysokości okna przeglądarki */
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  color: $orange;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.protonClass {
+  color: $gray;
+  font-size: 22px;
+  margin-bottom: 60px;
+}
+
+.filterContainer {
+  display: flex;
+  margin-bottom: 30px;
+
+  select {
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid $gold;
+    background-color: $black;
+    color: $gray;
+  }
+
+  label {
+    font-size: 18px;
+    color: $gold;
+  }
+}
+
+.kolejkaContainer {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.kolejkaTitle {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: $orange;
+  text-align: left;
+  width: 100%;
+}
+
+.matchesList {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Zwiększenie odstępów między divami meczów */
+  align-items: center;
+}
+
+.mainInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Utrzymanie szerokości dla całego wiersza */
+  max-width: 700px; /* Ograniczenie szerokości głównej sekcji meczu */
+}
+
+.matchItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px; /* Zwiększenie szerokości kontenera meczu */
+  border: 2px solid $gold;
+  padding: 30px; /* Zwiększenie paddingu */
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  p {
+    color: $gray;
+    font-weight: bold;
+  }
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+  
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff8c00; /* Kolor nazw drużyn */
+      text-align: center;
+      margin-top: 10px;
+    }
+}
+  
+.teamLogo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+}
+
+.matchInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px; /* Zmniejszenie szerokości sekcji z informacjami o meczu */
+
+  p {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .result {
+    font-size: 24px;
+    font-weight: bold;
+    color: $orange;
+    padding-top: 20px;
+  }
+}
+
+.matchDetails {
+  display: none;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  padding: 10px 0; /* Dodanie paddingu u góry i dołu */
+  margin-top: 10px; /* Dodanie marginesu do góry dla separacji */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Rozwinięcie szczegółów */
+.matchItem.expanded .matchDetails {
+  display: block;
+  opacity: 1;
+  max-height: 1000px;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h4, h5 {
+  font-size: 20px;
+  color: $orange;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 10px;
+    color: $gray;
+    font-weight: bold;
+  }
+}
