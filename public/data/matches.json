@@ -221,10 +221,10 @@
     "time": "16:00",
     "team1": "Noteć II Czarnków",
     "team2": "Huragan Młynkowo",
-    "result": null,
+    "result": "15 - 0",
     "team1Logo": "/assets/logos/notec_czarnkow.png",
     "team2Logo": "/assets/logos/huragan_mlynkowo.png",
-    "team1Goals": [],
+    "team1Goals": ["3x Mula", "3x Wojciechowski", "3x Orwat", "3x Mrzewka", "1x Cichorek", "1x Wyrwa", "1x Wernicki"],
     "team2Goals": []
   },
   {
@@ -233,11 +233,11 @@
     "time": "13:00",
     "team1": "KS Rogoźno",
     "team2": "Sokół Gębice",
-    "result": null,
+    "result": "4 - 1",
     "team1Logo": "/assets/logos/ks_rogozno.png",
     "team2Logo": "/assets/logos/sokol_gebice.png",
-    "team1Goals": [],
-    "team2Goals": []
+    "team1Goals": ["1x Białachowski", "1x Grabowski", "1x Piguła", "1x Kołodziej"],
+    "team2Goals": ["1x Grolewski"]
   },
   {
     "kolejka": 4,
@@ -245,11 +245,11 @@
     "time": "16:00",
     "team1": "Leśnik II Margonin",
     "team2": "Polonia II Chodzież",
-    "result": null,
+    "result": "1 - 7",
     "team1Logo": "/assets/logos/lesnik_margonin.png",
     "team2Logo": "/assets/logos/polonia_chodziez.png",
-    "team1Goals": [],
-    "team2Goals": []
+    "team1Goals": ["1x Karolak"],
+    "team2Goals": ["3x Szynkiewicz", "2x Kamiński", "1x Kuzara", "1x Biliński"]
   },
   {
     "kolejka": 4,
@@ -257,10 +257,10 @@
     "time": "16:00",
     "team1": "Victoria Miały",
     "team2": "Orzeł Pęckowo",
-    "result": null,
+    "result": "1 - 0",
     "team1Logo": "/assets/logos/victoria_mialy.png",
     "team2Logo": "/assets/logos/orzel_peckowo.png",
-    "team1Goals": [],
+    "team1Goals": ["1x Pujanek"],
     "team2Goals": []
   },
   {
@@ -269,10 +269,10 @@
     "time": "16:00",
     "team1": "Noteć II Rosko",
     "team2": "Gryf Zofiowo",
-    "result": null,
+    "result": "6 - 0",
     "team1Logo": "/assets/logos/notec_rosko.png",
     "team2Logo": "/assets/logos/gryf_zofiowo.png",
-    "team1Goals": [],
+    "team1Goals": ["4x Brożys", "1x Michalski", "1x Wyrowski"],
     "team2Goals": []
   },
   {
@@ -281,9 +281,81 @@
     "time": "16:00",
     "team1": "Sokół Drawsko",
     "team2": "Tarzani Wrzeszczyna",
-    "result": null,
+    "result": "2 - 4",
     "team1Logo": "/assets/logos/sokol_drawsko.png",
     "team2Logo": "/assets/logos/tarzani_wrzeszczyna.png",
+    "team1Goals": [],
+    "team2Goals": ["1x Musiał", "1x Stefaniak", "1x Myszkowski", "1x Rogiewicz"]
+  },
+  {
+    "kolejka": 5,
+    "date": "22 września 2024",
+    "time": "16:00",
+    "team1": "Tarzani Wrzeszczyna",
+    "team2": "Noteć II Czarnków",
+    "result": null,
+    "team1Logo": "/assets/logos/tarzani_wrzeszczyna.png",
+    "team2Logo": "/assets/logos/notec_czarnkow.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 5,
+    "date": "22 września 2024",
+    "time": "13:00",
+    "team1": "Gryf Zofiowo",
+    "team2": "Sokół Drawsko",
+    "result": null,
+    "team1Logo": "/assets/logos/gryf_zofiowo.png",
+    "team2Logo": "/assets/logos/sokol_drawsko.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 5,
+    "date": "21 września 2024",
+    "time": "16:00",
+    "team1": "Orzeł Pęckowo",
+    "team2": "Noteć II Rosko",
+    "result": null,
+    "team1Logo": "/assets/logos/orzel_peckowo.png",
+    "team2Logo": "/assets/logos/notec_rosko.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 5,
+    "date": "22 września 2024",
+    "time": "14:00",
+    "team1": "Polonia II Chodzież",
+    "team2": "Victoria Miały",
+    "result": null,
+    "team1Logo": "/assets/logos/polonia_chodziez.png",
+    "team2Logo": "/assets/logos/victoria_mialy.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 5,
+    "date": "21 września 2024",
+    "time": "15:00",
+    "team1": "Sokół Gębice",
+    "team2": "Leśnik II Margonin",
+    "result": null,
+    "team1Logo": "/assets/logos/sokol_gebice.png",
+    "team2Logo": "/assets/logos/lesnik_margonin.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 5,
+    "date": "22 września 2024",
+    "time": "13:00",
+    "team1": "Huragan Młynkowo",
+    "team2": "KS Rogoźno",
+    "result": null,
+    "team1Logo": "/assets/logos/huragan_mlynkowo.png",
+    "team2Logo": "/assets/logos/ks_rogozno.png",
     "team1Goals": [],
     "team2Goals": []
   }

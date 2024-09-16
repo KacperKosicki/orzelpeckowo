@@ -106,7 +106,7 @@ const Home = () => {
       <div
         className={styles.introSection}
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.90)), url(${process.env.PUBLIC_URL}/assets/images/orzel_peckowo_home_6.jpg)`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(${process.env.PUBLIC_URL}/assets/images/orzel_peckowo_home_6.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -194,7 +194,7 @@ const Home = () => {
       <div
         className={styles.newsSection}
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.90)), url(${process.env.PUBLIC_URL}/assets/images/orzel_peckowo_home_5.jpg)`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(${process.env.PUBLIC_URL}/assets/images/orzel_peckowo_home_5.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

@@ -33,6 +33,7 @@
   opacity: 0; /* Ukrywanie tabeli przed animacją */
   transform: translateY(30px); /* Początkowa pozycja */
   transition: opacity 0.8s ease, transform 0.8s ease; /* Animacja wejścia */
+  margin-bottom: 60px;
 }
 
 .table.visible {

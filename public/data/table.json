@@ -1,111 +1,111 @@
 [
     {
       "name": "Noteć II Czarnków",
-      "played": 3,
-      "points": 9,
-      "wins": 3,
+      "played": 4,
+      "points": 12,
+      "wins": 4,
       "draws": 0,
       "losses": 0,
-      "goals": "23-0"
+      "goals": "38-0"
     },
     {
       "name": "Victoria Miały",
-      "played": 3,
-      "points": 9,
-      "wins": 3,
+      "played": 4,
+      "points": 12,
+      "wins": 4,
       "draws": 0,
       "losses": 0,
-      "goals": "11-4"
+      "goals": "12-4"
     },
     {
       "name": "Orzeł Pęckowo",
-      "played": 3,
+      "played": 4,
       "points": 7,
       "wins": 2,
       "draws": 1,
-      "losses": 0,
-      "goals": "6-1"
+      "losses": 1,
+      "goals": "6-2"
     },
     {
       "name": "KS Rogoźno",
-      "played": 3,
-      "points": 7,
-      "wins": 2,
+      "played": 4,
+      "points": 10,
+      "wins": 3,
       "draws": 1,
       "losses": 0,
-      "goals": "6-3"
+      "goals": "10-4"
     },
     {
       "name": "Leśnik II Margonin",
-      "played": 3,
+      "played": 4,
       "points": 6,
       "wins": 2,
       "draws": 0,
-      "losses": 1,
-      "goals": "10-8"
+      "losses": 2,
+      "goals": "11-15"
     },
     {
       "name": "Huragan Młynkowo",
-      "played": 3,
+      "played": 4,
       "points": 4,
       "wins": 1,
       "draws": 1,
-      "losses": 1,
-      "goals": "3-4"
+      "losses": 2,
+      "goals": "3-19"
     },
     {
       "name": "Tarzani Wrzeszczyna",
-      "played": 3,
-      "points": 3,
-      "wins": 1,
+      "played": 4,
+      "points": 6,
+      "wins": 2,
       "draws": 0,
       "losses": 2,
-      "goals": "9-11"
+      "goals": "13-13"
     },
     {
       "name": "Noteć II Rosko",
-      "played": 3,
-      "points": 3,
-      "wins": 1,
+      "played": 4,
+      "points": 6,
+      "wins": 2,
       "draws": 0,
       "losses": 2,
-      "goals": "4-12"
+      "goals": "10-12"
     },
     {
       "name": "Sokół Gębice",
-      "played": 3,
+      "played": 4,
       "points": 2,
       "wins": 0,
       "draws": 2,
-      "losses": 1,
-      "goals": "2-12"
+      "losses": 2,
+      "goals": "3-16"
     },
     {
       "name": "Polonia II Chodzież",
-      "played": 3,
-      "points": 1,
-      "wins": 0,
+      "played": 4,
+      "points": 4,
+      "wins": 1,
       "draws": 1,
       "losses": 2,
-      "goals": "2-5"
+      "goals": "9-6"
     },
     {
       "name": "Sokół Drawsko",
-      "played": 3,
+      "played": 4,
       "points": 0,
       "wins": 0,
       "draws": 0,
-      "losses": 3,
-      "goals": "2-9"
+      "losses": 4,
+      "goals": "4-13"
     },
     {
       "name": "Gryf Zofiowo",
-      "played": 3,
+      "played": 4,
       "points": 0,
       "wins": 0,
       "draws": 0,
-      "losses": 3,
-      "goals": "4-13"
+      "losses": 4,
+      "goals": "4-19"
     }
   ]
   
