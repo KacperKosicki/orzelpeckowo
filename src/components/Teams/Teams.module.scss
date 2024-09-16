@@ -18,13 +18,13 @@
 
   .protonClass {
     color: $gray;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 60px;
   }
 
   .teamsList {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Dokładnie 3 kolumny w rzędzie */
+    grid-template-columns: repeat(3, 1fr); /* Trzy kolumny dla większych ekranów */
     gap: 20px;
     justify-items: center;
     margin-bottom: 60px;
@@ -71,6 +71,39 @@
       color: $orange;
       text-align: center;
       margin-top: 10px;
+    }
+  }
+
+  /* Dodajemy media queries dla RWD */
+  @media (max-width: 768px) {
+    .teamsList {
+      grid-template-columns: 1fr; /* Jedna kolumna dla średnich ekranów */
+      justify-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .teamsList {
+      grid-template-columns: 1fr; /* Jedna kolumna dla małych ekranów */
+      gap: 15px; /* Mniejsza przerwa między elementami */
+    }
+
+    .protonClass {
+      font-size: 16px; /* Dalsze zmniejszenie opisu */
+    }
+
+    .teamItem {
+      width: 100%; /* Pełna szerokość kontenera na małych ekranach */
+      max-width: 300px; /* Maksymalna szerokość dla małych ekranów */
+    }
+
+    .teamLogo {
+      width: 80px; /* Zmniejszona szerokość logo na małych ekranach */
+      height: 80px;
+    }
+
+    .teamName {
+      font-size: 16px; /* Zmniejszony rozmiar tekstu */
     }
   }
 }

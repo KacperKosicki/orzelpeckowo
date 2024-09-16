@@ -3,7 +3,7 @@ import styles from './Table.module.scss';
 
 const Table = () => {
   const [table, setTable] = useState([]);
-  const tableRef = useRef(null); // Używamy ref do tabeli
+  const tableRef = useRef(null);
 
   // Ładowanie danych z pliku JSON
   useEffect(() => {
@@ -38,34 +38,36 @@ const Table = () => {
     >
       <h2 className={styles.title}>TABELA</h2>
       <p className={styles.protonClass}>Klasa B Proton 2024/2025, grupa: wielkopolska II</p>
-      <table className={styles.table} ref={tableRef}>
-        <thead>
-          <tr>
-            <th>Pozycja</th>
-            <th>Nazwa</th>
-            <th>M.</th>
-            <th>Pkt.</th>
-            <th>Z.</th>
-            <th>R.</th>
-            <th>P.</th>
-            <th>Bramki</th>
-          </tr>
-        </thead>
-        <tbody>
-          {table.map((team, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{team.name}</td>
-              <td>{team.played}</td>
-              <td className={styles.points}>{team.points}</td>
-              <td>{team.wins}</td>
-              <td>{team.draws}</td>
-              <td>{team.losses}</td>
-              <td>{team.goals}</td>
+      <div className={styles.tableWrapper}>
+        <table className={styles.table} ref={tableRef}>
+          <thead>
+            <tr>
+              <th className={styles.sticky}>Pozycja</th>
+              <th className={styles.sticky}>Nazwa</th>
+              <th>M.</th>
+              <th>Pkt.</th>
+              <th>Z.</th>
+              <th>R.</th>
+              <th>P.</th>
+              <th>Bramki</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {table.map((team, index) => (
+              <tr key={index}>
+                <td className={styles.sticky}>{index + 1}</td>
+                <td className={styles.sticky}>{team.name}</td>
+                <td>{team.played}</td>
+                <td className={styles.points}>{team.points}</td>
+                <td>{team.wins}</td>
+                <td>{team.draws}</td>
+                <td>{team.losses}</td>
+                <td>{team.goals}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -22,15 +22,18 @@
 
 .protonClass {
   color: $gray;
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 60px;
 }
 
 .filterContainer {
   display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
+  flex-direction: column; /* Ustawienie elementów jeden pod drugim */
   justify-content: center;
+  align-items: center;
+  gap: 20px; /* Dodanie przerwy między filtrami */
+  width: 100%;
+  max-width: 300px; /* Maksymalna szerokość dla kontenera filtrów */
 
   select {
     padding: 10px;
@@ -40,7 +43,7 @@
     background-color: $black;
     color: $gray;
     width: 100%;
-    max-width: 300px; /* Maksymalna szerokość dla inputów */
+    max-width: 100%; /* Filtry wypełniają pełną szerokość kontenera */
     box-sizing: border-box;
   }
 
@@ -105,6 +108,14 @@
     color: $gray;
     font-weight: bold;
   }
+}
+
+/* Nowy styl dla informacji o kliknięciu */
+.clickToView {
+  font-style: italic;
+  color: $gray;
+  margin-top: 15px;
+  font-size: 14px;
 }
 
 .team {
@@ -259,10 +270,16 @@ ul {
     font-size: 14px;
   }
 
+  .protonClass {
+    font-size: 16px; /* Dalsze zmniejszenie opisu */
+  }
+
   .filterContainer {
+    margin-bottom: 20px;
+
     select {
       max-width: 100%;
-      font-size: 12px;
+      font-size: 20px;
     }
   }
 }

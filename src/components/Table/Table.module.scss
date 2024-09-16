@@ -9,6 +9,7 @@
   min-height: 100vh;
   text-align: center;
   border-bottom: 3px solid $gold;
+  overflow-x: auto; /* Dodajemy możliwość przewijania w poziomie */
 }
 
 .title {
@@ -19,42 +20,55 @@
 }
 
 .protonClass {
-  font-size: 20px;
   color: $gray;
+  font-size: 20px;
   margin-bottom: 60px;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto; /* Dodajemy przewijanie poziome do tabeli */
 }
 
 .table {
   width: 100%;
-  max-width: 1000px;
-  border-collapse: collapse;
-  border-radius: 10px;
+  min-width: 800px; /* Minimalna szerokość tabeli */
+  border-collapse: separate;
+  border-spacing: 10px;
+  border-radius: 12px;
   margin-top: 20px;
-  opacity: 0; /* Ukrywanie tabeli przed animacją */
-  transform: translateY(30px); /* Początkowa pozycja */
-  transition: opacity 0.8s ease, transform 0.8s ease; /* Animacja wejścia */
-  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-bottom: 50px;
 }
 
 .table.visible {
-  opacity: 1; /* Widoczność po załadowaniu */
-  transform: translateY(0); /* Powrót do normalnej pozycji */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 th, td {
-  padding: 15px 25px;
+  padding: 12px 15px;
   text-align: center;
-  font-size: 18px;
-  border: none;
-  color: $gray;
+  font-size: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 th {
-  background-color: $orange;
+  background: $orange;
   color: $black;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+td {
+  border-bottom: 1px solid $orange;
 }
 
 td:first-child {
@@ -66,80 +80,84 @@ td:last-child {
   font-weight: bold;
 }
 
-tr {
-  transition: transform 0.2s ease-in-out;
-}
-
-tr:hover {
-  transform: scale(1.01);
-}
-
-td {
-  padding: 20px;
-  border-bottom: 1px solid $orange;
+tr:hover td {
+  background: rgba(255, 165, 0, 0.2);
+  transform: scale(1.02);
 }
 
 .points {
   font-weight: bold;
-  color: $orange; /* Kolor pomarańczowy dla punktów */
+  color: $orange;
+}
+
+/* Pozycje stałe dla pierwszych kolumn */
+.sticky {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.sticky + .sticky {
+  left: 0; /* Odstęp dla drugiej kolumny */
 }
 
 /* Styl RWD dla mniejszych ekranów */
 @media (max-width: 768px) {
+  .tableContainer {
+    padding: 0 4px;
+  }
+
   .table {
-    max-width: 80%; /* Mniejsza szerokość na tabletach i mniejszych ekranach */
+    max-width: 90%;
+    overflow-x: auto;
   }
 
   th, td {
-    padding: 10px; /* Zmniejszenie paddingów w komórkach */
-    font-size: 14px; /* Zmniejszenie rozmiaru tekstu */
-  }
-
-  .title {
-    font-size: 28px; /* Zmniejszenie tytułu na mniejszych ekranach */
+    padding: 8px;
+    font-size: 10px;
   }
 
   .protonClass {
-    font-size: 18px; /* Zmniejszenie opisu na mniejszych ekranach */
+    font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .tableContainer {
+    padding: 0 3px;
+  }
+
   .table {
-    max-width: 90%; /* Jeszcze mniejsza szerokość na bardzo małych ekranach */
-    margin-left: auto; /* Centrowanie tabeli */
-    margin-right: auto; /* Centrowanie tabeli */
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .table.visible {
+    margin: 0 10px;
   }
 
   th, td {
-    padding: 8px; /* Jeszcze mniejsze paddingi */
-    font-size: 12px; /* Zmniejszenie rozmiaru tekstu */
-  }
-
-  .title {
-    font-size: 24px; /* Dalsze zmniejszenie tytułu na bardzo małych ekranach */
+    padding: 6px;
+    font-size: 9px;
   }
 
   .protonClass {
-    font-size: 16px; /* Dalsze zmniejszenie opisu */
+    font-size: 16px;
   }
 }
 
 @media (max-width: 360px) {
+  .tableContainer {
+    padding: 0 2px;
+  }
+
   .table {
-    max-width: 95%; /* Maksymalna szerokość na ultra małych ekranach */
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   th, td {
-    padding: 6px; /* Minimalne paddingi na najmniejszych ekranach */
-    font-size: 10px; /* Dalsze zmniejszenie rozmiaru tekstu */
-  }
-
-  .title {
-    font-size: 20px;
-  }
-
-  .protonClass {
-    font-size: 14px;
+    padding: 3px;
+    font-size: 8px;
   }
 }

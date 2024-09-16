@@ -24,8 +24,12 @@ const Matches = () => {
     setSelectedKolejka(e.target.value);
   };
 
-  const handleMatchClick = (index) => {
-    setExpandedMatchId(expandedMatchId === index ? null : index); // Rozwijanie/zamykanie meczu
+  const handleMatchClick = (matchId) => {
+    setExpandedMatchId(expandedMatchId === matchId ? null : matchId); // Rozwijanie/zamykanie meczu
+  };
+
+  const getMatchId = (match) => {
+    return `${match.kolejka}-${match.team1}-${match.team2}`; // Unikalny identyfikator meczu
   };
 
   const filteredMatches = matches.filter(match => {
@@ -55,7 +59,7 @@ const Matches = () => {
       {/* Filtrowanie drużyn */}
       <div className={styles.filterContainer}>
         <label htmlFor="teamFilter"></label>
-        <select id="teamFilter" onChange={handleTeamChange}>
+        <select className={styles.kolejkaFilter} id="teamFilter" onChange={handleTeamChange}>
           <option value="ALL">Wyświetl wszystkie drużyny</option>
           {teams.map((team, index) => (
             <option key={index} value={team}>{team}</option>
@@ -64,7 +68,7 @@ const Matches = () => {
 
         {/* Filtrowanie kolejek */}
         <label htmlFor="kolejkaFilter"></label>
-        <select id="kolejkaFilter" onChange={handleKolejkaChange}>
+        <select className={styles.kolejkaFilter} id="kolejkaFilter" onChange={handleKolejkaChange}>
           <option value="ALL">Wyświetl wszystkie kolejki</option>
           {kolejki.map((kolejka, index) => (
             <option key={index} value={kolejka}>Kolejka {kolejka}</option>
@@ -77,62 +81,70 @@ const Matches = () => {
         <div key={kolejka} className={styles.kolejkaContainer}>
           <h3 className={styles.kolejkaTitle}>Kolejka {kolejka}</h3>
           <div className={styles.matchesList}>
-            {groupedMatches[kolejka].map((match, index) => (
-              <div 
-                key={index} 
-                className={`${styles.matchItem} ${expandedMatchId === index ? styles.expanded : ''}`} 
-                onClick={() => handleMatchClick(index)} // Kliknięcie rozwija/zamyka mecz
-              >
-                <div className={styles.mainInfo}>
-                  <div className={styles.team}>
-                    <img src={match.team1Logo} alt={match.team1} className={styles.teamLogo} />
-                    <p>{match.team1}</p>
+            {groupedMatches[kolejka].map((match) => {
+              const matchId = getMatchId(match); // Używamy unikalnego identyfikatora meczu
+              return (
+                <div 
+                  key={matchId} 
+                  className={`${styles.matchItem} ${expandedMatchId === matchId ? styles.expanded : ''}`} 
+                  onClick={() => handleMatchClick(matchId)} // Kliknięcie rozwija/zamyka mecz
+                >
+                  <div className={styles.mainInfo}>
+                    <div className={styles.team}>
+                      <img src={match.team1Logo} alt={match.team1} className={styles.teamLogo} />
+                      <p>{match.team1}</p>
+                    </div>
+                    <div className={styles.matchInfo}>
+                      <p>{match.date} {match.time}</p>
+                      <p className={styles.result}>{match.result ? match.result : "Nie rozegrano"}</p>
+                    </div>
+                    <div className={styles.team}>
+                      <img src={match.team2Logo} alt={match.team2} className={styles.teamLogo} />
+                      <p>{match.team2}</p>
+                    </div>
                   </div>
-                  <div className={styles.matchInfo}>
-                    <p>{match.date} {match.time}</p>
-                    <p className={styles.result}>{match.result ? match.result : "Nie rozegrano"}</p>
-                  </div>
-                  <div className={styles.team}>
-                    <img src={match.team2Logo} alt={match.team2} className={styles.teamLogo} />
-                    <p>{match.team2}</p>
+
+                  {/* Warunkowe wyświetlanie informacji o kliknięciu */}
+                  {expandedMatchId !== matchId && (
+                    <p className={styles.clickToView}>Kliknij, aby zobaczyć szczegóły meczu</p>
+                  )}
+
+                  {/* Szczegóły meczu, które rozwijają się wewnątrz karty */}
+                  <div className={styles.matchDetails}>
+                    <h4>Szczegóły meczu</h4>
+                    <p><strong>{match.team1}</strong> vs <strong>{match.team2}</strong></p>
+                    <p>Data: {match.date} - Godzina: {match.time}</p>
+                    <p>Wynik: {match.result ? match.result : "Nie rozegrano"}</p>
+
+                    <h5>Gole drużyny {match.team1}:</h5>
+                    <ul>
+                      {match.team1Goals && match.team1Goals.length > 0 ? (
+                        match.team1Goals.map((goal, goalIndex) => (
+                          <li key={goalIndex}>{goal}</li>
+                        ))
+                      ) : match.result && match.result.split('-')[0].trim() === '0' ? (
+                        <li>Brak zdobytego gola</li>
+                      ) : (
+                        <li>Brak podanego strzelca</li>
+                      )}
+                    </ul>
+
+                    <h5>Gole drużyny {match.team2}:</h5>
+                    <ul>
+                      {match.team2Goals && match.team2Goals.length > 0 ? (
+                        match.team2Goals.map((goal, goalIndex) => (
+                          <li key={goalIndex}>{goal}</li>
+                        ))
+                      ) : match.result && match.result.split('-')[1].trim() === '0' ? (
+                        <li>Brak zdobytego gola</li>
+                      ) : (
+                        <li>Brak podanego strzelca</li>
+                      )}
+                    </ul>
                   </div>
                 </div>
-
-                {/* Szczegóły meczu, które rozwijają się wewnątrz karty */}
-                <div className={styles.matchDetails}>
-                  <h4>Szczegóły meczu</h4>
-                  <p><strong>{match.team1}</strong> vs <strong>{match.team2}</strong></p>
-                  <p>Data: {match.date} - Godzina: {match.time}</p>
-                  <p>Wynik: {match.result ? match.result : "Nie rozegrano"}</p>
-
-                  <h5>Gole drużyny {match.team1}:</h5>
-                  <ul>
-                    {match.team1Goals && match.team1Goals.length > 0 ? (
-                      match.team1Goals.map((goal, goalIndex) => (
-                        <li key={goalIndex}>{goal}</li>
-                      ))
-                    ) : match.result && match.result.split('-')[0].trim() === '0' ? (
-                      <li>Brak zdobytego gola</li>
-                    ) : (
-                      <li>Brak podanego strzelca</li>
-                    )}
-                  </ul>
-
-                  <h5>Gole drużyny {match.team2}:</h5>
-                  <ul>
-                    {match.team2Goals && match.team2Goals.length > 0 ? (
-                      match.team2Goals.map((goal, goalIndex) => (
-                        <li key={goalIndex}>{goal}</li>
-                      ))
-                    ) : match.result && match.result.split('-')[1].trim() === '0' ? (
-                      <li>Brak zdobytego gola</li>
-                    ) : (
-                      <li>Brak podanego strzelca</li>
-                    )}
-                  </ul>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       ))}

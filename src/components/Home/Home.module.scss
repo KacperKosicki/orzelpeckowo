@@ -366,7 +366,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    margin-top: 20px;
 
     .newsItem {
       border: 2px solid $gold;
@@ -381,9 +380,9 @@
       }
 
       h4 {
+        margin-top: 0;
         font-size: 24px;
         color: $orange;
-        margin-bottom: 15px;
       }
 
       p {
@@ -397,9 +396,7 @@
         font-size: 20px;
         background-color: $orange;
         color: $black;
-        border: none;
         border-radius: 8px;
-        margin-top: 30px;
         transition: transform 0.3s ease, background-color 0.3s ease;
 
         &:hover {
@@ -474,18 +471,17 @@
       h4 {
         font-size: 16px;
         margin-bottom: 5px;
-        margin-top: 0;
+        margin-top: 10px;
       }
 
       p {
         font-size: 12px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
 
       .ctaButton {
         padding: 8px 12px;
         font-size: 12px;
-        
       }
 
       .fbLink {
