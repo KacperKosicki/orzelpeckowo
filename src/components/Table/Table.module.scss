@@ -83,3 +83,63 @@ td {
   font-weight: bold;
   color: $orange; /* Kolor pomarańczowy dla punktów */
 }
+
+/* Styl RWD dla mniejszych ekranów */
+@media (max-width: 768px) {
+  .table {
+    max-width: 80%; /* Mniejsza szerokość na tabletach i mniejszych ekranach */
+  }
+
+  th, td {
+    padding: 10px; /* Zmniejszenie paddingów w komórkach */
+    font-size: 14px; /* Zmniejszenie rozmiaru tekstu */
+  }
+
+  .title {
+    font-size: 28px; /* Zmniejszenie tytułu na mniejszych ekranach */
+  }
+
+  .protonClass {
+    font-size: 18px; /* Zmniejszenie opisu na mniejszych ekranach */
+  }
+}
+
+@media (max-width: 480px) {
+  .table {
+    max-width: 90%; /* Jeszcze mniejsza szerokość na bardzo małych ekranach */
+    margin-left: auto; /* Centrowanie tabeli */
+    margin-right: auto; /* Centrowanie tabeli */
+  }
+
+  th, td {
+    padding: 8px; /* Jeszcze mniejsze paddingi */
+    font-size: 12px; /* Zmniejszenie rozmiaru tekstu */
+  }
+
+  .title {
+    font-size: 24px; /* Dalsze zmniejszenie tytułu na bardzo małych ekranach */
+  }
+
+  .protonClass {
+    font-size: 16px; /* Dalsze zmniejszenie opisu */
+  }
+}
+
+@media (max-width: 360px) {
+  .table {
+    max-width: 95%; /* Maksymalna szerokość na ultra małych ekranach */
+  }
+
+  th, td {
+    padding: 6px; /* Minimalne paddingi na najmniejszych ekranach */
+    font-size: 10px; /* Dalsze zmniejszenie rozmiaru tekstu */
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .protonClass {
+    font-size: 14px;
+  }
+}
