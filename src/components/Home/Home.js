@@ -194,12 +194,13 @@ const Home = () => {
       <div
         className={styles.newsSection}
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(${process.env.PUBLIC_URL}/assets/images/orzel_peckowo_home_5.jpg)`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(${process.env.PUBLIC_URL}/assets/images/orzel_peckowo_home_8.jpg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           width: '100%',
-          height: '100vh',
+          height: 'auto',
+          minHeight: '100vh'
         }}
       >
         <div className={styles.newsContent}>
@@ -216,6 +217,7 @@ const Home = () => {
               <Link to="/#" className={styles.ctaButton}>
                 Zobacz nabór do drużyny
               </Link>
+              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
             </div>
             <div className={styles.newsItem}>
               <h4>Nowe stroje dla drużyny</h4>
@@ -223,6 +225,7 @@ const Home = () => {
               <Link to="/#" className={styles.ctaButton}>
                 Zobacz nowe stroje
               </Link>
+              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
             </div>
             <div className={styles.newsItem}>
               <h4>Plan sparingów przed sezonem</h4>
@@ -230,6 +233,7 @@ const Home = () => {
               <Link to="/#" className={styles.ctaButton}>
                 Zobacz harmonogram treningów
               </Link>
+              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
             </div>
             <div className={styles.newsItem}>
               <h4>Nasza strona na Facebook'u</h4>
@@ -240,6 +244,7 @@ const Home = () => {
               >
                 Zobacz Facebook'a
               </a>
+              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
             </div>
           </div>
         </div>

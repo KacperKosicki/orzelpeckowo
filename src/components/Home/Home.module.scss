@@ -154,7 +154,6 @@
 
 // Sekcja z następnym i poprzednim meczem oraz licznikiem
 .countdownSection {
-  margin-bottom: 60px;
   margin-top: 60px;
   display: flex;
   flex-direction: column;
@@ -428,61 +427,72 @@
   }
 
   // Dostosowanie dla ekranów mniejszych niż 768px
-  @media (max-width: 768px) {
-    .newsContent {
-      max-width: 100%;
+// Dostosowanie dla ekranów mniejszych niż 768px
+@media (max-width: 768px) {
+  .newsContent {
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 10px;
+
+    .span {
+      color: $orange;
+    }
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: $gray;
+  }
+
+  .newsList {
+    display: flex; // Dodajemy flexbox, aby ustawić elementy w kolumnie
+    flex-direction: column; // Ustawiamy w kolumnie
+    justify-content: center;
+    align-items: center; // Środkowanie elementów w osi poziomej
+    gap: 25px; // Odstępy między elementami
+    margin-top: 10px;
+    width: 100%; // Zapewnienie, że element nie będzie wychodził poza ekran
+    margin-bottom: 20px;
+
+    .newsItem {
       padding: 10px;
-      text-align: center;
-    }
+      width: 100%; // Szerokość na 90% ekranu, aby elementy nie wychodziły poza ekran
+      max-width: 320px; // Maksymalna szerokość
+      margin: 0 auto;
+      border-radius: 6px;
 
-    .title {
-      font-size: 32px;
-      margin-bottom: 10px;
-
-      .span {
-        color: $orange;
+      .spacer {
+        height: 20px; /* Wysokość odstępu */
       }
-    }
 
-    .subtitle {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: $gray;
-    }
+      h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        margin-top: 0;
+      }
 
-    .newsList {
-      flex-direction: column;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
+      p {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
 
-      .newsItem {
-        padding: 10px;
-        max-width: 280px;
-        margin: 0 auto;
-        border-radius: 6px;
+      .ctaButton {
+        padding: 8px 12px;
+        font-size: 12px;
+        
+      }
 
-        h4 {
-          font-size: 14px;
-          margin-bottom: 5px;
-          margin-top: 0;
-        }
-
-        p {
-          font-size: 10px;
-          margin-bottom: 8px;
-        }
-
-        .ctaButton {
-          padding: 6px 10px;
-          font-size: 10px;
-        }
-
-        .fbLink {
-          padding: 6px 10px;
-          font-size: 10px;
-        }
+      .fbLink {
+        padding: 8px 12px;
+        font-size: 12px;
       }
     }
   }
+}
 }

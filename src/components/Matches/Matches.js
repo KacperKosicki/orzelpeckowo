@@ -98,43 +98,39 @@ const Matches = () => {
                   </div>
                 </div>
 
-                {/* Rozwijane szczegóły meczu */}
-                {expandedMatchId === index && (
-                  <div className={styles.matchDetails}>
-                    <h4>Szczegóły meczu</h4>
-                    <p><strong>{match.team1}</strong> vs <strong>{match.team2}</strong></p>
-                    <p>Data: {match.date} - Godzina: {match.time}</p>
-                    <p>Wynik: {match.result ? match.result : "Nie rozegrano"}</p>
+                {/* Szczegóły meczu, które rozwijają się wewnątrz karty */}
+                <div className={styles.matchDetails}>
+                  <h4>Szczegóły meczu</h4>
+                  <p><strong>{match.team1}</strong> vs <strong>{match.team2}</strong></p>
+                  <p>Data: {match.date} - Godzina: {match.time}</p>
+                  <p>Wynik: {match.result ? match.result : "Nie rozegrano"}</p>
 
-                    {/* Gole drużyny 1 */}
-                    <h5>Gole drużyny {match.team1}:</h5>
-                    <ul>
-                      {match.team1Goals && match.team1Goals.length > 0 ? (
-                        match.team1Goals.map((goal, goalIndex) => (
-                          <li key={goalIndex}>{goal}</li>
-                        ))
-                      ) : match.result && match.result.split('-')[0].trim() === '0' ? (
-                        <li>Brak zdobytego gola</li>
-                      ) : (
-                        <li>Brak podanego strzelca</li>
-                      )}
-                    </ul>
+                  <h5>Gole drużyny {match.team1}:</h5>
+                  <ul>
+                    {match.team1Goals && match.team1Goals.length > 0 ? (
+                      match.team1Goals.map((goal, goalIndex) => (
+                        <li key={goalIndex}>{goal}</li>
+                      ))
+                    ) : match.result && match.result.split('-')[0].trim() === '0' ? (
+                      <li>Brak zdobytego gola</li>
+                    ) : (
+                      <li>Brak podanego strzelca</li>
+                    )}
+                  </ul>
 
-                    {/* Gole drużyny 2 */}
-                    <h5>Gole drużyny {match.team2}:</h5>
-                    <ul>
-                      {match.team2Goals && match.team2Goals.length > 0 ? (
-                        match.team2Goals.map((goal, goalIndex) => (
-                          <li key={goalIndex}>{goal}</li>
-                        ))
-                      ) : match.result && match.result.split('-')[1].trim() === '0' ? (
-                        <li>Brak zdobytego gola</li>
-                      ) : (
-                        <li>Brak podanego strzelca</li>
-                      )}
-                    </ul>
-                  </div>
-                )}
+                  <h5>Gole drużyny {match.team2}:</h5>
+                  <ul>
+                    {match.team2Goals && match.team2Goals.length > 0 ? (
+                      match.team2Goals.map((goal, goalIndex) => (
+                        <li key={goalIndex}>{goal}</li>
+                      ))
+                    ) : match.result && match.result.split('-')[1].trim() === '0' ? (
+                      <li>Brak zdobytego gola</li>
+                    ) : (
+                      <li>Brak podanego strzelca</li>
+                    )}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
