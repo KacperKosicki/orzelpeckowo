@@ -1,0 +1,149 @@
+@import '../../styles/variables.scss';
+
+.playersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: $gray;
+  min-height: 100vh;
+  border-bottom: 3px solid $gold;
+  padding: 50px 20px;
+}
+
+.title {
+  font-size: 36px;
+  color: $orange;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.playersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Karty dopasowują się do szerokości */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* Ograniczenie maksymalnej szerokości listy */
+}
+
+.playerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid $gold;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.playerImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 2px solid $gold;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.playerInfo {
+  text-align: center;
+}
+
+.playerName {
+  font-size: 22px;
+  font-weight: bold;
+  color: $orange;
+  margin-bottom: 10px;
+}
+
+.playerPosition {
+  font-size: 18px;
+  color: $gray;
+  margin-bottom: 5px;
+}
+
+.playerNumber {
+  font-size: 14px;
+  span {
+    color: $orange;
+    font-weight: bold;
+  }
+}
+
+/* Styl RWD dla mniejszych ekranów */
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .playersList {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Jeszcze szersze karty dla ekranów poniżej 768px */
+    margin-bottom: 40px;
+  }
+
+  .playerCard {
+    padding: 15px;
+    max-width: 400px; /* Szersze karty */
+  }
+
+  .playerImage {
+    width: 130px;
+    height: 130px;
+  }
+
+  .playerName {
+    font-size: 20px;
+  }
+
+  .playerPosition {
+    font-size: 18px;
+  }
+
+  .playerNumber {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .playersList {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Jeszcze szersze karty dla ekranów poniżej 480px */
+    gap: 20px;
+  }
+
+  .playerCard {
+    padding: 12px;
+    max-width: 380px; /* Maksymalna szerokość kart */
+    margin: 0 auto; /* Wyśrodkowanie kart */
+  }
+
+  .playerImage {
+    width: 140px;
+    height: 140px;
+  }
+
+  .playerName {
+    font-size: 20px;
+  }
+
+  .playerPosition {
+    font-size: 16px;
+  }
+
+  .playerNumber {
+    font-size: 14px;
+  }
+}

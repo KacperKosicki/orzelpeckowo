@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "name": "Nazwa zawodnika",
+      "position": "Bramkarz",
+      "number": 1,
+      "image": "/assets/players/player.png"
+    },
+    {
+      "id": 2,
+      "name": "Nazwa zawodnika",
+      "position": "Obrońca",
+      "number": 2,
+      "image": "/assets/players/player.png"
+    },
+    {
+      "id": 3,
+      "name": "Nazwa zawodnika",
+      "position": "Pomocnik",
+      "number": 3,
+      "image": "/assets/players/player.png"
+    },
+    {
+      "id": 4,
+      "name": "Nazwa zawodnika",
+      "position": "Napastnik",
+      "number": 4,
+      "image": "/assets/players/player.png"
+    }
+  ]
+  

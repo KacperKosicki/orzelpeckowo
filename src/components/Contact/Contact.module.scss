@@ -1,0 +1,109 @@
+@import '../../styles/variables.scss';
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $gray;
+  border-bottom: 3px solid $gold;
+  min-height: 100vh;
+  box-sizing: border-box; /* Zapewnia prawidłowe obliczanie wymiarów */
+}
+
+.title {
+  font-size: 36px;
+  color: $orange;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+    color: $gray;
+    font-size: 20px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid #ffd700;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box; /* Upewnia się, że padding nie wyjeżdża poza kontener */
+}
+
+.label {
+  font-size: 16px;
+  color: $gray;
+  margin-bottom: 10px;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: $gray;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid $gray;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  outline: none;
+  box-sizing: border-box; /* Dodano box-sizing, aby padding nie rozszerzał elementu */
+  transition: border 0.3s ease;
+
+  &:focus {
+    border-color: $orange;
+  }
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitButton {
+    animation-delay: 0.8s;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: $orange;
+    color: $black;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+
+  &:hover {
+    background-color: darken($orange, 10%);
+  }
+}
+
+/* Styl RWD dla mniejszych ekranów */
+@media (max-width: 768px) {
+  .contactForm {
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 60px;
+  }
+
+  .input, .textarea {
+    font-size: 14px;
+  }
+
+  .submitButton {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+    .subtitle {
+        font-size: 16px; /* Dalsze zmniejszenie opisu */
+    }
+
+    .input, .textarea {
+        font-size: 12px;
+    }
+}

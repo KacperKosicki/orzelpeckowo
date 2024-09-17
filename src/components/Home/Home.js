@@ -7,10 +7,11 @@ const Home = () => {
   const [nextMatch, setNextMatch] = useState(null);
   const [lastMatch, setLastMatch] = useState(null);
   const [clubs, setClubs] = useState([]);
+  const [matchStarted, setMatchStarted] = useState(false);
   const logosRef = useRef(null);
 
-  // Funkcja konwersji daty
-  const convertDate = (dateStr) => {
+  // Funkcja konwersji daty i czasu
+  const convertDateTime = (dateStr, timeStr) => {
     const months = {
       'stycznia': '01',
       'lutego': '02',
@@ -23,29 +24,46 @@ const Home = () => {
       'września': '09',
       'października': '10',
       'listopada': '11',
-      'grudnia': '12'
+      'grudnia': '12',
     };
 
     const [day, monthWord, year] = dateStr.split(' ');
     const month = months[monthWord];
-    return `${year}-${month}-${day.padStart(2, '0')}`;
+    
+    // Jeśli czas nie jest podany, ustaw na domyślny (np. 00:00)
+    const time = timeStr || '00:00';
+
+    return `${year}-${month}-${day.padStart(2, '0')}T${time}`;
   };
 
   // Licznik odliczania
   useEffect(() => {
     const interval = setInterval(() => {
       if (nextMatch) {
-        const matchDate = new Date(`${convertDate(nextMatch.date)}T${nextMatch.time}`);
+        const matchDate = new Date(convertDateTime(nextMatch.date, nextMatch.time));
         const now = new Date();
         const difference = matchDate - now;
 
         if (!isNaN(difference)) {
-          setTimeLeft({
-            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-            minutes: Math.floor((difference / 1000 / 60) % 60),
-            seconds: Math.floor((difference / 1000) % 60),
-          });
+          if (difference <= 0) {
+            // Mecz się rozpoczął lub już minął
+            setTimeLeft({
+              days: 0,
+              hours: 0,
+              minutes: 0,
+              seconds: 0,
+            });
+            setMatchStarted(true); // Ustawia, że mecz się rozpoczął
+            clearInterval(interval); // Zatrzymaj licznik
+          } else {
+            setMatchStarted(false); // Mecz jeszcze się nie rozpoczął
+            setTimeLeft({
+              days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+              hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+              minutes: Math.floor((difference / 1000 / 60) % 60),
+              seconds: Math.floor((difference / 1000) % 60),
+            });
+          }
         }
       }
     }, 1000);
@@ -63,12 +81,19 @@ const Home = () => {
         );
 
         setNextMatch(
-          orzelMatches.find((match) => new Date(`${convertDate(match.date)}T${match.time}`) >= new Date())
+          orzelMatches.find((match) => {
+            const matchDate = new Date(convertDateTime(match.date, match.time));
+            return matchDate >= new Date();
+          })
         );
+
         setLastMatch(
           orzelMatches
-            .filter((match) => new Date(`${convertDate(match.date)}T${match.time}`) < new Date())
-            .sort((a, b) => new Date(`${convertDate(b.date)}T${b.time}`) - new Date(`${convertDate(a.date)}T${a.time}`))[0]
+            .filter((match) => {
+              const matchDate = new Date(convertDateTime(match.date, match.time));
+              return matchDate < new Date();
+            })
+            .sort((a, b) => new Date(convertDateTime(b.date, b.time)) - new Date(convertDateTime(a.date, a.time)))[0]
         );
       });
 
@@ -133,25 +158,33 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {nextMatch && (
+
+      {(nextMatch || lastMatch) && (
         <div className={styles.countdownSection}>
           <div className={styles.matchContainer}>
-            <div className={styles.nextMatch}>
-              <h3>Następny mecz</h3>
-              <div className={styles.mainInfo}>
-                <div className={styles.team}>
-                  <img src={nextMatch.team1Logo} alt={nextMatch.team1} className={styles.teamLogo} />
-                  <p>{nextMatch.team1}</p>
-                </div>
-                <div className={styles.matchInfo}>
-                  <p>{nextMatch.date} - {nextMatch.time}</p>
-                </div>
-                <div className={styles.team}>
-                  <img src={nextMatch.team2Logo} alt={nextMatch.team2} className={styles.teamLogo} />
-                  <p>{nextMatch.team2}</p>
+            {/* Sprawdź, czy mecz się nie rozpoczął. Jeśli nie, pokaż szczegóły następnego meczu */}
+            {!matchStarted && nextMatch ? (
+              <div className={styles.nextMatch}>
+                <h3>Następny mecz</h3>
+                <div className={styles.mainInfo}>
+                  <div className={styles.team}>
+                    <img src={nextMatch.team1Logo} alt={nextMatch.team1} className={styles.teamLogo} />
+                    <p>{nextMatch.team1}</p>
+                  </div>
+                  <div className={styles.matchInfo}>
+                    <p>{nextMatch.date} - {nextMatch.time || '00:00'}</p>
+                  </div>
+                  <div className={styles.team}>
+                    <img src={nextMatch.team2Logo} alt={nextMatch.team2} className={styles.teamLogo} />
+                    <p>{nextMatch.team2}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className={styles.noNextMatch}>
+                <h3>Brak następnego meczu do wyświetlenia</h3>
+              </div>
+            )}
 
             {lastMatch && (
               <div className={styles.lastMatch}>
@@ -174,6 +207,7 @@ const Home = () => {
             )}
           </div>
 
+          {/* Licznik */}
           <div className={styles.countdown}>
             <div className={styles.timeBox}>
               <span>{timeLeft.days}</span> dni
@@ -200,7 +234,7 @@ const Home = () => {
           backgroundRepeat: 'no-repeat',
           width: '100%',
           height: 'auto',
-          minHeight: '100vh'
+          minHeight: '100vh',
         }}
       >
         <div className={styles.newsContent}>
@@ -217,7 +251,7 @@ const Home = () => {
               <Link to="/#" className={styles.ctaButton}>
                 Zobacz nabór do drużyny
               </Link>
-              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
+              <div className={styles.spacer}></div>
             </div>
             <div className={styles.newsItem}>
               <h4>Nowe stroje dla drużyny</h4>
@@ -225,7 +259,7 @@ const Home = () => {
               <Link to="/#" className={styles.ctaButton}>
                 Zobacz nowe stroje
               </Link>
-              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
+              <div className={styles.spacer}></div>
             </div>
             <div className={styles.newsItem}>
               <h4>Plan sparingów przed sezonem</h4>
@@ -233,7 +267,7 @@ const Home = () => {
               <Link to="/#" className={styles.ctaButton}>
                 Zobacz harmonogram treningów
               </Link>
-              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
+              <div className={styles.spacer}></div>
             </div>
             <div className={styles.newsItem}>
               <h4>Nasza strona na Facebook'u</h4>
@@ -244,7 +278,7 @@ const Home = () => {
               >
                 Zobacz Facebook'a
               </a>
-              <div className={styles.spacer}></div> {/* Tutaj dodajemy odstęp */}
+              <div className={styles.spacer}></div>
             </div>
           </div>
         </div>

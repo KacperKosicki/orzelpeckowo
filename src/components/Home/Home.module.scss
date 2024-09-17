@@ -56,7 +56,6 @@
     transition: transform 0.3s ease, background-color 0.3s ease;
 
     &:hover {
-      transform: scale(1.1);
       background-color: darken($orange, 10%);
     }
   }
@@ -173,7 +172,7 @@
     max-width: 1200px;
   }
 
-  .nextMatch, .lastMatch {
+  .nextMatch, .lastMatch, .noNextMatch {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -288,7 +287,7 @@
       gap: 20px;
     }
 
-    .lastMatch, .nextMatch {
+    .lastMatch, .nextMatch, .noNextMatch {
       border: 1px solid #ffd700;
       padding: 10px;
       border-radius: 8px;
@@ -400,7 +399,6 @@
         transition: transform 0.3s ease, background-color 0.3s ease;
 
         &:hover {
-          transform: scale(1.1);
           background-color: darken($orange, 10%);
         }
       }
@@ -416,7 +414,6 @@
         transition: transform 0.3s ease, background-color 0.3s ease;
 
         &:hover {
-          transform: scale(1.1);
           background-color: darken($orange, 10%);
         }
       }
@@ -424,71 +421,70 @@
   }
 
   // Dostosowanie dla ekranów mniejszych niż 768px
-// Dostosowanie dla ekranów mniejszych niż 768px
-@media (max-width: 768px) {
-  .newsContent {
-    max-width: 100%;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .title {
-    font-size: 32px;
-    margin-bottom: 10px;
-
-    .span {
-      color: $orange;
-    }
-  }
-
-  .subtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: $gray;
-  }
-
-  .newsList {
-    display: flex; // Dodajemy flexbox, aby ustawić elementy w kolumnie
-    flex-direction: column; // Ustawiamy w kolumnie
-    justify-content: center;
-    align-items: center; // Środkowanie elementów w osi poziomej
-    gap: 25px; // Odstępy między elementami
-    margin-top: 10px;
-    width: 100%; // Zapewnienie, że element nie będzie wychodził poza ekran
-    margin-bottom: 20px;
-
-    .newsItem {
+  @media (max-width: 768px) {
+    .newsContent {
+      max-width: 100%;
       padding: 10px;
-      width: 100%; // Szerokość na 90% ekranu, aby elementy nie wychodziły poza ekran
-      max-width: 320px; // Maksymalna szerokość
-      margin: 0 auto;
-      border-radius: 6px;
+      text-align: center;
+    }
 
-      .spacer {
-        height: 20px; /* Wysokość odstępu */
+    .title {
+      font-size: 32px;
+      margin-bottom: 10px;
+
+      .span {
+        color: $orange;
       }
+    }
 
-      h4 {
-        font-size: 16px;
-        margin-bottom: 5px;
-        margin-top: 10px;
-      }
+    .subtitle {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: $gray;
+    }
 
-      p {
-        font-size: 12px;
-        margin-bottom: 15px;
-      }
+    .newsList {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      margin-top: 10px;
+      width: 100%;
+      margin-bottom: 20px;
 
-      .ctaButton {
-        padding: 8px 12px;
-        font-size: 12px;
-      }
+      .newsItem {
+        padding: 10px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        border-radius: 6px;
 
-      .fbLink {
-        padding: 8px 12px;
-        font-size: 12px;
+        .spacer {
+          height: 20px;
+        }
+
+        h4 {
+          font-size: 16px;
+          margin-bottom: 5px;
+          margin-top: 10px;
+        }
+
+        p {
+          font-size: 12px;
+          margin-bottom: 15px;
+        }
+
+        .ctaButton {
+          padding: 8px 12px;
+          font-size: 12px;
+        }
+
+        .fbLink {
+          padding: 8px 12px;
+          font-size: 12px;
+        }
       }
     }
   }
-}
 }

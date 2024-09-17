@@ -358,5 +358,77 @@
     "team2Logo": "/assets/logos/ks_rogozno.png",
     "team1Goals": [],
     "team2Goals": []
+  },
+  {
+    "kolejka": 6,
+    "date": "28 września 2024",
+    "time": null,
+    "team1": "Noteć II Czarnków",
+    "team2": "KS Rogoźno",
+    "result": null,
+    "team1Logo": "/assets/logos/notec_czarnkow.png",
+    "team2Logo": "/assets/logos/ks_rogozno.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 6,
+    "date": "28 września 2024",
+    "time": null,
+    "team1": "Leśnik II Margonin",
+    "team2": "Huragan Młynkowo",
+    "result": null,
+    "team1Logo": "/assets/logos/lesnik_margonin.png",
+    "team2Logo": "/assets/logos/huragan_mlynkowo.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 6,
+    "date": "28 września 2024",
+    "time": null,
+    "team1": "Victoria Miały",
+    "team2": "Sokół Gębice",
+    "result": null,
+    "team1Logo": "/assets/logos/victoria_mialy.png",
+    "team2Logo": "/assets/logos/sokol_gebice.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 6,
+    "date": "28 września 2024",
+    "time": null,
+    "team1": "Noteć II Rosko",
+    "team2": "Polonia II Chodzież",
+    "result": null,
+    "team1Logo": "/assets/logos/notec_rosko.png",
+    "team2Logo": "/assets/logos/polonia_chodziez.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 6,
+    "date": "29 września 2024",
+    "time": null,
+    "team1": "Sokół Drawsko",
+    "team2": "Orzeł Pęckowo",
+    "result": null,
+    "team1Logo": "/assets/logos/sokol_drawsko.png",
+    "team2Logo": "/assets/logos/orzel_peckowo.png",
+    "team1Goals": [],
+    "team2Goals": []
+  },
+  {
+    "kolejka": 6,
+    "date": "29 września 2024",
+    "time": null,
+    "team1": "Tarzani Wrzeszczyna",
+    "team2": "Gryf Zofiowo",
+    "result": null,
+    "team1Logo": "/assets/logos/tarzani_wrzeszczyna.png",
+    "team2Logo": "/assets/logos/gryf_zofiowo.png",
+    "team1Goals": [],
+    "team2Goals": []
   }
 ]
